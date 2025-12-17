@@ -2,7 +2,7 @@ git init
 git add .
 git commit -m "Initial Skyway VIP website"
 git branch -M main
-git remote add origin https://github.com/TU_USUARIO/skyway-vip-website.git
+git remote add origin https://github.com/skywayconcierge-bit/skyway-vip-website.git
 git push -u origin main
 import React from "react";
 import { motion } from "framer-motion";
