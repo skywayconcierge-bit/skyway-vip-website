@@ -1,0 +1,211 @@
+git init
+git add .
+git commit -m "Initial Skyway VIP website"
+git branch -M main
+git remote add origin https://github.com/TU_USUARIO/skyway-vip-website.git
+git push -u origin main
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShieldCheck, Crown, ConciergeBell, MessageCircle } from "lucide-react";
+
+export default function SkywayVipWebsite() {
+  const [lang, setLang] = React.useState("en");
+
+  const t = {
+    en: {
+      title: "Skyway VIP Services",
+      subtitle: "Premium Meet & Greet at Ezeiza Airport",
+      tagline: "VIP Concierge & Luxury Assistance Worldwide",
+      request: "Request VIP Assistance",
+      reserve: "Reserve via WhatsApp",
+      services: "Our Services",
+      servicesDesc: "VIP Services at Ezeiza Airport · Worldwide Concierge",
+      meet: "Meet & Greet EZE",
+      fast: "Fast Track & Immigration",
+      concierge: "Worldwide VIP Concierge",
+      meetText: "Personalized arrival and departure assistance at Ezeiza International Airport.",
+      fastText: "Priority immigration, customs and security clearance for VIP travelers.",
+      conciergeText: "Hotels, transfers, security, events and bespoke services worldwide.",
+      formTitle: "Request VIP Service",
+      submit: "Submit VIP Request",
+    },
+    es: {
+      title: "Skyway Servicios VIP",
+      subtitle: "Meet & Greet Premium en Aeropuerto de Ezeiza",
+      tagline: "Concierge VIP y Asistencia de Lujo a Nivel Mundial",
+      request: "Solicitar Asistencia VIP",
+      reserve: "Reservar vía WhatsApp",
+      services: "Nuestros Servicios",
+      servicesDesc: "Servicios VIP en Ezeiza · Concierge Global",
+      meet: "Meet & Greet EZE",
+      fast: "Fast Track & Migraciones",
+      concierge: "Concierge VIP Mundial",
+      meetText: "Asistencia personalizada en llegadas y salidas en el Aeropuerto de Ezeiza.",
+      fastText: "Prioridad en migraciones, aduana y controles de seguridad.",
+      conciergeText: "Hoteles, traslados, seguridad, eventos y servicios a medida en todo el mundo.",
+      formTitle: "Solicitud de Servicio VIP",
+      submit: "Enviar Solicitud VIP",
+    },
+    ru: {
+      title: "Skyway VIP Сервисы",
+      subtitle: "Премиальный Meet & Greet в аэропорту Эсейса",
+      tagline: "VIP‑консьерж и люксовая поддержка по всему миру",
+      request: "Запросить VIP‑обслуживание",
+      reserve: "Забронировать через WhatsApp",
+      services: "Наши Услуги",
+      servicesDesc: "VIP‑сервисы в Эсейсе · Глобальный консьерж",
+      meet: "Meet & Greet EZE",
+      fast: "Fast Track и иммиграция",
+      concierge: "VIP‑консьерж по всему миру",
+      meetText: "Персональное сопровождение при прилёте и вылете в аэропорту Эсейса.",
+      fastText: "Приоритетное прохождение иммиграции, таможни и досмотров.",
+      conciergeText: "Отели, трансферы, безопасность, мероприятия и индивидуальные услуги по всему миру.",
+      formTitle: "Запрос VIP‑сервиса",
+      submit: "Отправить VIP‑запрос",
+    },
+  };
+
+  const copy = t[lang];
+
+  return (
+    <div className="bg-[#0B1F17] text-white min-h-screen font-sans">
+      {/* LANGUAGE SELECTOR */}
+      <div className="fixed top-6 right-6 z-50 flex gap-3 bg-black/50 backdrop-blur px-4 py-2 rounded-full text-sm">
+        <button onClick={() => setLang("en")} className={lang === "en" ? "text-[#C6A15B]" : "text-gray-400"}>EN</button>
+        <button onClick={() => setLang("es")} className={lang === "es" ? "text-[#C6A15B]" : "text-gray-400"}>ES</button>
+        <button onClick={() => setLang("ru")} className={lang === "ru" ? "text-[#C6A15B]" : "text-gray-400"}>RU</button>
+      </div>
+
+      {/* HERO + SERVICES ABOVE THE FOLD */}
+      <section className="relative min-h-screen flex flex-col justify-center bg-cover bg-center" style={{ backgroundImage: "url(/hero-vip.jpg)" }}>
+        <div className="absolute inset-0 bg-black/60" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10 text-center max-w-4xl mx-auto px-6 pt-24"
+        >
+          <h1 className="text-5xl md:text-6xl font-serif font-light tracking-wider mb-4">
+            {copy.title}
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 mb-2">{copy.subtitle}</p>
+          <p className="text-sm md:text-base text-gray-400 mb-6">{copy.tagline}</p>
+
+          <div className="flex flex-col md:flex-row gap-4 justify-center mb-10">
+            <Button className="bg-[#1F7A5A] hover:bg-[#2FA77D] rounded-2xl px-8 py-5 text-lg">
+              {copy.request}
+            </Button>
+            <Button asChild className="bg-[#1F7A5A] hover:bg-[#2FA77D] rounded-2xl px-8 py-5 text-lg">
+              <a href="/crew-services" className="inline-flex items-center gap-2">
+                Crew Services
+              </a>
+            </Button>
+            <Button asChild className="bg-[#1F7A5A] hover:bg-[#2FA77D] rounded-2xl px-8 py-5 text-lg">
+              <a href="https://wa.me/XXXXXXXXXXX" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
+                <MessageCircle size={20} /> {copy.reserve}
+              </a>
+            </Button>
+          </div>
+        </motion.div>
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-16">
+          <h2 className="text-3xl text-center mb-2 font-light">{copy.services}</h2>
+          <p className="text-center text-gray-400 mb-8 text-sm">{copy.servicesDesc}</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <ServiceCard icon={<Crown />} title={copy.meet} text={copy.meetText} />
+            <ServiceCard icon={<ShieldCheck />} title={copy.fast} text={copy.fastText} />
+            <ServiceCard icon={<ConciergeBell />} title={copy.concierge} text={copy.conciergeText} />
+          </div>
+        </div>
+      </section>
+
+      {/* REQUEST FORM */}
+      <section className="py-24 px-6 max-w-4xl mx-auto">
+        <h2 className="text-4xl text-center mb-10 font-light">{copy.formTitle}</h2>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const form = e.target;
+            const message = `VIP REQUEST – SKYWAY%0A%0AName: ${form[0].value}%0AEmail: ${form[1].value}%0AFlight: ${form[2].value}%0APax: ${form[3].value}%0ADate: ${form[4].value}%0AService: ${form[5].value}%0ADetails: ${form[6].value}`;
+            window.open(`https://wa.me/XXXXXXXXXXX?text=${message}`, "_blank");
+          }}
+          className="grid gap-6 bg-[#07160F] p-10 rounded-2xl shadow-xl"
+        >
+          <div className="grid md:grid-cols-2 gap-6">
+            <input className="bg-black/40 rounded-xl p-4" placeholder="Full Name" />
+            <input className="bg-black/40 rounded-xl p-4" placeholder="Email" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input className="bg-black/40 rounded-xl p-4" placeholder="Flight Number" />
+            <input className="bg-black/40 rounded-xl p-4" placeholder="Passengers" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input type="date" className="bg-black/40 rounded-xl p-4" />
+            <select className="bg-black/40 rounded-xl p-4">
+              <option>Arrival</option>
+              <option>Departure</option>
+              <option>Transit</option>
+            </select>
+          </div>
+          <textarea className="bg-black/40 rounded-xl p-4" rows={4} placeholder="Additional details" />
+          <Button className="bg-[#C6A15B] hover:bg-[#D6B36B] text-black rounded-2xl py-6">
+            {copy.submit}
+          </Button>
+        </form>
+      </section>
+
+      <footer className="py-10 text-center text-gray-400 text-sm bg-black">
+        © 2025 Skyway VIP Services · Ezeiza Airport & Worldwide Concierge
+      </footer>
+    </div>
+  );
+}
+
+// CREW SERVICES PAGE
+export function CrewServicesPage() {
+  return (
+    <div className="bg-[#0B1F17] text-white min-h-screen px-6 py-24">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-5xl font-serif font-light mb-6 text-center">Crew Services</h1>
+        <p className="text-center text-gray-400 mb-16">
+          Dedicated support for flight crew, operators and executive aviation worldwide.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          <CrewCard title="Crew Meet & Assist" text="Airport assistance for pilots and cabin crew, fast-track and coordination." />
+          <CrewCard title="Crew Transportation" text="Dedicated vehicles and drivers for crew movements and rest periods." />
+          <CrewCard title="Hotels & Crew Rest" text="Carefully selected hotels ensuring proper crew rest and comfort." />
+          <CrewCard title="Immigration & Documentation" text="Visa, immigration and regulatory support for international crew." />
+          <CrewCard title="24/7 Ops Support" text="Operational assistance and coordination around the clock." />
+          <CrewCard title="Personal Shopper" text="Luxury personal shopping service for crew and passengers, worldwide." />
+          <CrewCard title="Local Gift Boxes" text="Curated local gift boxes with premium regional products for crew and passengers." />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CrewCard({ title, text }) {
+  return (
+    <Card className="bg-[#07160F] border-none rounded-2xl shadow-xl">
+      <CardContent className="p-8">
+        <h3 className="text-xl mb-3 text-gray-300">{title}</h3>
+        <p className="text-gray-400 text-sm">{text}</p>
+      </CardContent>
+    </Card>
+  );
+}
+
+function ServiceCard({ icon, title, text }) {
+  return (
+    <Card className="bg-[#07160F] border-none rounded-2xl shadow-xl">
+      <CardContent className="p-8">
+        <div className="text-[#2FA77D] mb-4">{icon}</div>
+        <h3 className="text-xl mb-3 text-gray-300">{title}</h3>
+        <p className="text-gray-400 text-sm">{text}</p>
+      </CardContent>
+    </Card>
+  );
+}
